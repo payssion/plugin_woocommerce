@@ -1,4 +1,4 @@
-Payssion opencart extension
+Payssion WooCommerce extension
 =================
 
 <h3>Getting Started</h3>
