@@ -24,6 +24,8 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	protected $pm_id = '';
 	protected $pm = '';
 	protected $is_channel = true;
+	public $title = '';
+	public $description = '';
 
 	/**
 	 * Constructor for the gateway.
@@ -163,7 +165,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 							'title'       => __( 'Title', 'woocommerce' ),
 							'type'        => 'text',
 							'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-							'default'     => __( $this->pm, 'woocommerce' ),
+							'default'     => __( $this->title ? $this->title : $this->pm, 'woocommerce' ),
 							'desc_tip'    => true,
 					),
 					'description' => array(
@@ -171,7 +173,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 							'type'        => 'text',
 							'desc_tip'    => true,
 							'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce' ),
-							'default'     => __( 'Pay via ' . $this->pm, 'woocommerce' )
+							'default'     => __( $this->description ? $this->description : ('Pay via ' . $this->pm), 'woocommerce' )
 					)
 			);
 		} else {

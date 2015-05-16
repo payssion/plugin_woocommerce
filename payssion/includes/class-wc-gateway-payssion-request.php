@@ -75,6 +75,7 @@ class WC_Gateway_Payssion_Request {
 				'track_id'      => $order->id,
 				'sub_track_id'  => $order->order_key,
 				'notify_url'    => $this->notify_url,
+				'payer_ref'     => $_POST['payer_ref'],
 				'payer_name'    => $order->billing_first_name . ' ' . $order->billing_last_name,
 				'country'       => $order->billing_country,
 				'payer_email'   => $order->billing_email

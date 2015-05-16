@@ -15,6 +15,9 @@ function init_payssion_gateway() {
 	
 	require_once('class-wc-gateway-payssion.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
+	require_once('class-wc-gateway-payssion-mercadopago.php');
+	require_once('class-wc-gateway-payssion-bancodobrasil.php');
+	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-cashu.php');
 	require_once('class-wc-gateway-payssion-onecard.php');
 	require_once('class-wc-gateway-payssion-paysafecard.php');
@@ -28,6 +31,9 @@ function init_payssion_gateway() {
 				array(
 						'WC_Gateway_Payssion', 
 						'WC_Gateway_Payssion_Boleto',
+						'WC_Gateway_Payssion_MercadoPago',
+						'WC_Gateway_Payssion_Bancodobrasil',
+						'WC_Gateway_Payssion_Santander',
 						'WC_Gateway_Payssion_CashU',
 						'WC_Gateway_Payssion_OneCard',
 						'WC_Gateway_Payssion_Paysafecard',
