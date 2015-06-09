@@ -236,7 +236,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 							'description' => __( 'Get your API credentials from Payssion.', 'woocommerce' ),
 							'default'     => '',
 							'desc_tip'    => true,
-							'placeholder' => __( 'Optional', 'woocommerce' )
+							'placeholder' => __( 'Required', 'woocommerce' )
 					),
 					'secret_key' => array(
 							'title'       => __( 'Secret Key', 'woocommerce' ),
@@ -244,7 +244,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 							'description' => __( 'Get your API credentials from Payssion.', 'woocommerce' ),
 							'default'     => '',
 							'desc_tip'    => true,
-							'placeholder' => __( 'Optional', 'woocommerce' )
+							'placeholder' => __( 'Required', 'woocommerce' )
 					));
 		}
 	}
