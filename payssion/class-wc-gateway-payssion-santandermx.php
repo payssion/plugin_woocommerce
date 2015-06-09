@@ -16,4 +16,5 @@ require_once( 'class-wc-gateway-payssion.php' );
  */
 class WC_Gateway_Payssion_Santandermx extends WC_Gateway_Payssion {
 	protected $pm_id = 'santander_mx';
+	public $title = 'Santander Mexico';
 }
