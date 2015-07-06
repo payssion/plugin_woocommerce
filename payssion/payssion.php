@@ -17,6 +17,7 @@ function init_payssion_gateway() {
 	
 	
 	require_once('class-wc-gateway-payssion-banamex.php');
+	require_once('class-wc-gateway-payssion-bancochile.php');
 	require_once('class-wc-gateway-payssion-bancodobrasil.php');
 	require_once('class-wc-gateway-payssion-bancomer.php');
 	require_once('class-wc-gateway-payssion-bbva.php');
@@ -30,6 +31,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-pagoefectivo.php');
 	require_once('class-wc-gateway-payssion-paysafecard.php');
 	require_once('class-wc-gateway-payssion-qiwi.php');
+	require_once('class-wc-gateway-payssion-redcompra.php');
 	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-santandermx.php');
 	require_once('class-wc-gateway-payssion-sofort.php');
@@ -41,6 +43,7 @@ function init_payssion_gateway() {
 				array(
 						'WC_Gateway_Payssion', 
 						'WC_Gateway_Payssion_Banamex',
+						'WC_Gateway_Payssion_Bancochile',
 						'WC_Gateway_Payssion_Bancodobrasil',
 						'WC_Gateway_Payssion_Bancomer',
 						'WC_Gateway_Payssion_BBVA',
@@ -54,6 +57,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Pagoefectivo',
 						'WC_Gateway_Payssion_Paysafecard',
 						'WC_Gateway_Payssion_QIWI',
+						'WC_Gateway_Payssion_Redcompra',
 						'WC_Gateway_Payssion_Santander',
 						'WC_Gateway_Payssion_Santandermx',
 						'WC_Gateway_Payssion_SOFORT'));
