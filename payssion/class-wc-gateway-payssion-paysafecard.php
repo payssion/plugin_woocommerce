@@ -16,4 +16,5 @@ require_once( 'class-wc-gateway-payssion.php' );
  */
 class WC_Gateway_Payssion_Paysafecard extends WC_Gateway_Payssion {
 	protected $pm_id = 'paysafecard';
+	protected $curreny_list = array('USD', 'EUR', 'GBP');
 }
