@@ -26,10 +26,12 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-cashu.php');
 	require_once('class-wc-gateway-payssion-interbank.php');
 	require_once('class-wc-gateway-payssion-mercadopago.php');
+	require_once('class-wc-gateway-payssion-neosurf.php');
 	require_once('class-wc-gateway-payssion-onecard.php');
 	require_once('class-wc-gateway-payssion-oxxo.php');
 	require_once('class-wc-gateway-payssion-pagoefectivo.php');
 	require_once('class-wc-gateway-payssion-paysafecard.php');
+	require_once('class-wc-gateway-payssion-poli.php');
 	require_once('class-wc-gateway-payssion-qiwi.php');
 	require_once('class-wc-gateway-payssion-redcompra.php');
 	require_once('class-wc-gateway-payssion-santander.php');
@@ -52,10 +54,12 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_CashU',
 						'WC_Gateway_Payssion_Interbank',
 						'WC_Gateway_Payssion_MercadoPago',
+						'WC_Gateway_Payssion_Neosurf',
 						'WC_Gateway_Payssion_OneCard',
 						'WC_Gateway_Payssion_OXXO',
 						'WC_Gateway_Payssion_Pagoefectivo',
 						'WC_Gateway_Payssion_Paysafecard',
+						'WC_Gateway_Payssion_POLi',
 						'WC_Gateway_Payssion_QIWI',
 						'WC_Gateway_Payssion_Redcompra',
 						'WC_Gateway_Payssion_Santander',
