@@ -303,7 +303,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	}
 	
 	/**
-	 * Generate the alipay button link (POST method)
+	 * Generate the payssion button link (POST method)
 	 *
 	 * @access public
 	 * @param mixed $order_id
@@ -316,7 +316,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	
 		wc_enqueue_js( '
 				$.blockUI({
-				message: "' . esc_js( __( 'Thank you for your order. We are now redirecting you to payssion to make payment.', 'alipay' ) ) . '",
+				message: "' . esc_js( __( 'Thank you for your order. We are now redirecting you to payssion to make payment.', 'payssion' ) ) . '",
 				baseZ: 99999,
 				overlayCSS:
 				{
@@ -334,13 +334,13 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 				lineHeight:     "24px",
 	}
 	});
-				jQuery("#submit_alipay_payment_form").click();
+				jQuery("#submit_payssion_payment_form").click();
 				' );
 	
 		return '<form id="payssionsubmit" name="payssionsubmit" action="www.payssion.com' . '" method="post" target="_top">' . implode('', $payssion_args_array) . '
 		<!-- Button Fallback -->
 		<div class="payment_buttons">
-		<input type="submit" class="button-alt" id="submit_alipay_payment_form" value="' . __('Pay via Alipay', 'alipay') . '" /> <a class="button cancel" href="' . esc_url($order->get_cancel_order_url()) . '">' . __('Cancel order &amp; restore cart', 'alipay') . '</a>
+		<input type="submit" class="button-alt" id="submit_payssion_payment_form" value="' . __('Pay via payssion', 'payssion') . '" /> <a class="button cancel" href="' . esc_url($order->get_cancel_order_url()) . '">' . __('Cancel order &amp; restore cart', 'payssion') . '</a>
 		</div>
 		<script type="text/javascript">
 		jQuery(".payment_buttons").hide();
