@@ -9,7 +9,7 @@ require_once( 'class-wc-gateway-payssion.php' );
 /**
  * Payssion 
  *
- * @class 		WC_Gateway_Payssion_Paysafecard
+ * @class 		WC_Gateway_Payssion_Yamoney
  * @extends		WC_Payment_Gateway
  * @version		1.0.0
  * @author 		Payssion

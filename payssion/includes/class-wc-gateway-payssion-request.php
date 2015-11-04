@@ -65,7 +65,7 @@ class WC_Gateway_Payssion_Request {
 		$payssion = new WC_Gateway_Payssion();
 		
 		$data = array(
-				'source'        => 'cart',
+				'source'        => 'woocommerce',
 				'api_key'       => $this->gateway->get_apikey(),
 				'pm_id'         => $this->gateway->get_pmid(),
 				'amount'        => $order_total,
