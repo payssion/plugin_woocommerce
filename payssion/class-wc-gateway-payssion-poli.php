@@ -16,5 +16,4 @@ require_once( 'class-wc-gateway-payssion.php' );
  */
 class WC_Gateway_Payssion_POLi extends WC_Gateway_Payssion {
 	protected $pm_id = 'polipayment';
-	protected $curreny_list = array('NZD', 'AUD');
 }

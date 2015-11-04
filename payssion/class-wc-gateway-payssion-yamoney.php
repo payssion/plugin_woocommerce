@@ -16,7 +16,6 @@ require_once( 'class-wc-gateway-payssion.php' );
  */
 class WC_Gateway_Payssion_Yamoney extends WC_Gateway_Payssion {
 	protected $pm_id = 'yandexmoney';
-	protected $curreny_list = array('USD');
 	
 	public $title = 'Yandex.Money';
 }

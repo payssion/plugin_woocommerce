@@ -16,5 +16,4 @@ require_once( 'class-wc-gateway-payssion.php' );
  */
 class WC_Gateway_Payssion_Neosurf extends WC_Gateway_Payssion {
 	protected $pm_id = 'neosurf';
-	protected $curreny_list = array('EUR');
 }

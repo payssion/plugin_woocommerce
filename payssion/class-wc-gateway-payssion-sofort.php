@@ -16,5 +16,4 @@ require_once( 'class-wc-gateway-payssion.php' );
  */
 class WC_Gateway_Payssion_SOFORT extends WC_Gateway_Payssion {
 	protected $pm_id = 'sofort';
-	protected $curreny_list = array('EUR');
 }

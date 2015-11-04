@@ -26,8 +26,6 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	protected $is_channel = true;
 	public $title = '';
 	public $description = '';
-	
-	protected $curreny_list = array('USD');
 
 	/**
 	 * Constructor for the gateway.
@@ -132,7 +130,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	 * @return bool
 	 */
 	public function is_valid_for_use() {
-		return in_array( get_woocommerce_currency(), apply_filters( 'woocommerce_payssion_supported_currencies', $this->curreny_list) );
+		return true;
 	}
 
 	/**
