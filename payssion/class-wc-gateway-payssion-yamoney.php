@@ -15,7 +15,7 @@ require_once( 'class-wc-gateway-payssion.php' );
  * @author 		Payssion
  */
 class WC_Gateway_Payssion_Yamoney extends WC_Gateway_Payssion {
-	protected $pm_id = 'yandexmoney';
+	protected $pm_id = 'yamoney';
 	
 	public $title = 'Yandex.Money';
 }

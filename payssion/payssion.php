@@ -20,18 +20,14 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-bancochile.php');
 	require_once('class-wc-gateway-payssion-bancodobrasil.php');
 	require_once('class-wc-gateway-payssion-bancomer.php');
-	require_once('class-wc-gateway-payssion-bbva.php');
-	require_once('class-wc-gateway-payssion-bcp.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
 	require_once('class-wc-gateway-payssion-cashu.php');
-	require_once('class-wc-gateway-payssion-interbank.php');
 	require_once('class-wc-gateway-payssion-mercadopago.php');
 	require_once('class-wc-gateway-payssion-molpay.php');
 	require_once('class-wc-gateway-payssion-neosurf.php');
 	require_once('class-wc-gateway-payssion-onecard.php');
 	require_once('class-wc-gateway-payssion-openbucks.php');
 	require_once('class-wc-gateway-payssion-oxxo.php');
-	require_once('class-wc-gateway-payssion-pagoefectivo.php');
 	require_once('class-wc-gateway-payssion-paysafecard.php');
 	require_once('class-wc-gateway-payssion-poli.php');
 	require_once('class-wc-gateway-payssion-qiwi.php');
