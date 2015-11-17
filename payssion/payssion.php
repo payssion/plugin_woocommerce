@@ -35,6 +35,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-santandermx.php');
 	require_once('class-wc-gateway-payssion-sofort.php');
+	require_once('class-wc-gateway-payssion-trustpay.php');
 	require_once('class-wc-gateway-payssion-yamoney.php');
 	
 	// Add the gateway to WooCommerce
@@ -62,6 +63,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Santander',
 						'WC_Gateway_Payssion_Santandermx',
 						'WC_Gateway_Payssion_SOFORT',
+						'WC_Gateway_Payssion_Trustpay',
 						'WC_Gateway_Payssion_Yamoney'));
 	}
 	add_filter('woocommerce_payment_gateways', 'add_payssion_gateway' );
