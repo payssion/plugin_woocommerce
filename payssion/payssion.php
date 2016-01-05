@@ -22,9 +22,12 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-bancomer.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
 	require_once('class-wc-gateway-payssion-cashu.php');
+	require_once('class-wc-gateway-payssion-dragonpay.php');
+	require_once('class-wc-gateway-payssion-enets.php');
 	require_once('class-wc-gateway-payssion-mercadopago.php');
 	require_once('class-wc-gateway-payssion-molpay.php');
 	require_once('class-wc-gateway-payssion-neosurf.php');
+	require_once('class-wc-gateway-payssion-nganluong.php');
 	require_once('class-wc-gateway-payssion-onecard.php');
 	require_once('class-wc-gateway-payssion-openbucks.php');
 	require_once('class-wc-gateway-payssion-oxxo.php');
@@ -50,9 +53,12 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Bancomer',
 						'WC_Gateway_Payssion_Boleto',
 						'WC_Gateway_Payssion_CashU',
+						'WC_Gateway_Payssion_Dragonpay',
+						'WC_Gateway_Payssion_Enets',
 						'WC_Gateway_Payssion_MercadoPago',
 						'WC_Gateway_Payssion_Molpay',
 						'WC_Gateway_Payssion_Neosurf',
+						'WC_Gateway_Payssion_Nganluong',
 						'WC_Gateway_Payssion_OneCard',
 						'WC_Gateway_Payssion_Openbucks',
 						'WC_Gateway_Payssion_OXXO',
