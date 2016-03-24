@@ -15,7 +15,7 @@ function init_payssion_gateway() {
 	
 	require_once('class-wc-gateway-payssion.php');
 	
-	
+	require_once('class-wc-gateway-payssion-alipay.php');
 	require_once('class-wc-gateway-payssion-banamex.php');
 	require_once('class-wc-gateway-payssion-bancochile.php');
 	require_once('class-wc-gateway-payssion-bancodobrasil.php');
@@ -47,6 +47,7 @@ function init_payssion_gateway() {
 		return array_merge($methods, 
 				array(
 						'WC_Gateway_Payssion', 
+						'WC_Gateway_Payssion_Alipay',
 						'WC_Gateway_Payssion_Banamex',
 						'WC_Gateway_Payssion_Bancochile',
 						'WC_Gateway_Payssion_Bancodobrasil',
