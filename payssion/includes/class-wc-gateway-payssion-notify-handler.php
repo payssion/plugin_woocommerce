@@ -102,6 +102,55 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 		return false;
 	}
 	
+	
+	private function validate_amount_currency( $order, $posted ) {
+		// Validate currency
+		$order_amount = number_format( $order->get_total(), 2, '.', '' );
+		$order_currency = $order->get_order_currency();
+		$currency = $posted['currency'];
+		$amount = $posted['amount'];
+		$error = false;
+		$error_amount = null;
+		$error_currency = null;
+		if ($order_currency == $currency) {
+			if ($order_amount != $amount) {
+				$error = 1;
+				$error_amount = $amount;
+			}
+		} else {
+			$currency_local = @$posted['currency_local'];
+			if ($currency_local) {
+				if ($order_currency == $currency_local) {
+					$amount_local = @$posted['amount_local'];
+					if ($order_amount != $amount_local) {
+						$error = 1;
+						$error_amount = $amount_local;
+			        }
+				} else {
+					$error = 2;
+					$error_currency = $currency_local;
+				}
+			} else {
+				$error = 2;
+				$error_currency = $currency;
+			}
+		}
+		
+		if (1 == $error) {
+			WC_Gateway_Payssion::log( 'Payment error: Amounts do not match (gross ' . $error_amount . ')' );
+			
+			// Put this order on-hold for manual checking
+			$order->update_status( 'on-hold', sprintf( __( 'Validation error: Payssion amounts do not match (gross %s).', 'woocommerce' ), $error_amount ) );
+			exit;
+		} else if (2 == $error) {
+			WC_Gateway_Payssion::log( 'Payment error: Currencies do not match (sent "' . $order->get_order_currency() . '" | returned "' . $error_currency . '")' );
+			
+			// Put this order on-hold for manual checking
+			$order->update_status( 'on-hold', sprintf( __( 'Validation error: Payssion currencies do not match (code %s).', 'woocommerce' ), $error_currency ) );
+			exit;
+		}
+	}
+	
 	/**
 	 * Check currency from Notify matches the order
 	 * @param  WC_Order $order
@@ -142,8 +191,9 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 			exit;
 		}
 		
-		$this->validate_currency( $order, $posted['currency'] );
-		$this->validate_amount( $order, $posted['amount'] );
+		$this->validate_amount_currency( $order, $posted );
+		//$this->validate_currency( $order, $posted['currency'] );
+		//$this->validate_amount( $order, $posted['amount'] );
 
 		if ( 'completed' === $posted['state'] ) {
 			$this->payment_complete( $order, ( ! empty( $posted['transaction_id'] ) ? wc_clean( $posted['transaction_id'] ) : '' ), __( 'Payssion Notify payment completed', 'woocommerce' ) );
