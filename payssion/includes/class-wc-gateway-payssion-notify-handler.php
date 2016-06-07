@@ -187,7 +187,7 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 	 */
 	private function payment_status_completed( $order, $posted ) {
 		if ( $order->has_status( 'completed' ) ) {
-			WC_Gateway_Paypal::log( 'Aborting, Order #' . $order->id . ' is already complete.' );
+			WC_Gateway_Payssion::log( 'Aborting, Order #' . $order->id . ' is already complete.' );
 			exit;
 		}
 		
