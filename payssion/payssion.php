@@ -40,6 +40,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-santandermx.php');
 	require_once('class-wc-gateway-payssion-sofort.php');
 	require_once('class-wc-gateway-payssion-trustpay.php');
+	require_once('class-wc-gateway-payssion-webmoney.php');
 	require_once('class-wc-gateway-payssion-yamoney.php');
 	
 	// Add the gateway to WooCommerce
