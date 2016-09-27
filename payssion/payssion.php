@@ -20,14 +20,18 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-bancochile.php');
 	require_once('class-wc-gateway-payssion-bancodobrasil.php');
 	require_once('class-wc-gateway-payssion-bancomer.php');
+	require_once('class-wc-gateway-payssion-bitcashjp.php');
 	require_once('class-wc-gateway-payssion-bitcoin.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
 	require_once('class-wc-gateway-payssion-cashu.php');
+	require_once('class-wc-gateway-payssion-creditcardjp.php');
+	require_once('class-wc-gateway-payssion-docomojp.php');
 	require_once('class-wc-gateway-payssion-dragonpay.php');
 	require_once('class-wc-gateway-payssion-enets.php');
 	require_once('class-wc-gateway-payssion-mercadopago.php');
 	require_once('class-wc-gateway-payssion-molpay.php');
 	require_once('class-wc-gateway-payssion-neosurf.php');
+	require_once('class-wc-gateway-payssion-netcashjp.php');
 	require_once('class-wc-gateway-payssion-nganluong.php');
 	require_once('class-wc-gateway-payssion-onecard.php');
 	require_once('class-wc-gateway-payssion-openbucks.php');
@@ -41,6 +45,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-sofort.php');
 	require_once('class-wc-gateway-payssion-trustpay.php');
 	require_once('class-wc-gateway-payssion-webmoney.php');
+	require_once('class-wc-gateway-payssion-webmoneyjp.php');
 	require_once('class-wc-gateway-payssion-yamoney.php');
 	
 	// Add the gateway to WooCommerce
@@ -54,14 +59,17 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Bancochile',
 						'WC_Gateway_Payssion_Bancodobrasil',
 						'WC_Gateway_Payssion_Bancomer',
+						'WC_Gateway_Payssion_BitCashJP',
 						'WC_Gateway_Payssion_Bitcoin',
 						'WC_Gateway_Payssion_Boleto',
 						'WC_Gateway_Payssion_CashU',
+						'WC_Gateway_Payssion_CreditCardJP',
 						'WC_Gateway_Payssion_Dragonpay',
 						'WC_Gateway_Payssion_Enets',
 						'WC_Gateway_Payssion_MercadoPago',
 						'WC_Gateway_Payssion_Molpay',
 						'WC_Gateway_Payssion_Neosurf',
+						'WC_Gateway_Payssion_NetCashJP',
 						'WC_Gateway_Payssion_Nganluong',
 						'WC_Gateway_Payssion_OneCard',
 						'WC_Gateway_Payssion_Openbucks',
@@ -74,6 +82,8 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Santandermx',
 						'WC_Gateway_Payssion_SOFORT',
 						'WC_Gateway_Payssion_Trustpay',
+						'WC_Gateway_Payssion_WebMoney',
+						'WC_Gateway_Payssion_WebMoneyJP',
 						'WC_Gateway_Payssion_Yamoney'));
 	}
 	add_filter('woocommerce_payment_gateways', 'add_payssion_gateway' );
