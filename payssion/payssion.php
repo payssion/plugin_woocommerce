@@ -43,7 +43,9 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-santandermx.php');
 	require_once('class-wc-gateway-payssion-sofort.php');
+	require_once('class-wc-gateway-payssion-tenpay.php');
 	require_once('class-wc-gateway-payssion-trustpay.php');
+	require_once('class-wc-gateway-payssion-unionpay.php');
 	require_once('class-wc-gateway-payssion-webmoney.php');
 	require_once('class-wc-gateway-payssion-webmoneyjp.php');
 	require_once('class-wc-gateway-payssion-yamoney.php');
