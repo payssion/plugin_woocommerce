@@ -83,7 +83,9 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Santander',
 						'WC_Gateway_Payssion_Santandermx',
 						'WC_Gateway_Payssion_SOFORT',
+						'WC_Gateway_Payssion_Tenpay',
 						'WC_Gateway_Payssion_Trustpay',
+						'WC_Gateway_Payssion_Unionpay',
 						'WC_Gateway_Payssion_WebMoney',
 						'WC_Gateway_Payssion_WebMoneyJP',
 						'WC_Gateway_Payssion_Yamoney'));
