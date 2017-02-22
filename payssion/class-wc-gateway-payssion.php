@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @class 		WC_Gateway_Payssion
  * @extends		WC_Payment_Gateway
- * @version		1.0.0
+ * @version		1.0.1
  * @package		WooCommerce/Classes/Payment
- * @author 		WooThemes
+ * @author 		Payssion
  */
 class WC_Gateway_Payssion extends WC_Payment_Gateway {
 
@@ -71,10 +71,6 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 			include_once( 'includes/class-wc-gateway-payssion-notify-handler.php' );
 			new WC_Gateway_Payssion_Notify_Handler( $this->testmode);
 		}
-		
-		//$this->enabled  = 'no';
-		//http://localhost/wordpresscn/index.php/wc-api/WC_Gateway_Payssion/
-		//curl -d "app_name=newapi&pm_id=boleto_br&transaction_id=F515774317869704&track_id=16&sub_track_id=wc_order_5555a5ca918b7&amount=30.00&currency=USD&paid=0.00&state=completed&notify_sig=f5f0c9a457322ac228ca62f7ddd57efd" "http://localhost/wordpresscn/index.php/wc-api/WC_Gateway_Payssion/"
 	}
 	
 	protected $api_key;
@@ -228,7 +224,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 					'api_details' => array(
 							'title'       => __( 'API Credentials', 'woocommerce' ),
 							'type'        => 'title',
-							'description' => sprintf( __( 'Enter your Payssion API credentials to process refunds via Payssion. Learn how to access your Payssion API Credentials %shere%s.', 'woocommerce' ), '<a href="https://developer.Payssion.com/webapps/developer/docs/classic/api/apiCredentials/#creating-classic-api-credentials">', '</a>' ),
+							'description' => __( 'Enter your Payssion API credentials which you can find at your app settings after logging in at your payssion account.', 'woocommerce' ),
 					),
 					'api_key' => array(
 							'title'       => __( 'API Key', 'woocommerce' ),

@@ -3,8 +3,8 @@
 Plugin Name: WooCommerce Payssion
 Plugin URI: http://www.payssion.com
 Description: Integrates your Payssion payment getway into your WooCommerce installation.
-Version: 1.0.0
-Author: Payssion Limited
+Version: 1.0.1
+Author: Payssion
 Text Domain: payssion
 Author URI: http://www.payssion.com
 */
