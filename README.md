@@ -4,7 +4,11 @@ Payssion WooCommerce extension
 <h3>Getting Started</h3>
 
 <h4>Installation</h4>
-Upload the `payssion` folder to /wp-content/plugins/ on your server.
+1. Check if you have installed `Woocommerce` and install `Woocommerce` plugin first if you have not install it.
+2. Go to your WordPress admin area and click on `Plugins` -> `Add New`.
+3. Type in `Payssion` in Search Plugins box and you should be able to find the the Payssion Plugin.
+4. Click `Install Now` to install the Payssion Plugin.
+
 
 <h4>Setup</h4>
 
