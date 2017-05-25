@@ -23,6 +23,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-bitcashjp.php');
 	require_once('class-wc-gateway-payssion-bitcoin.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
+	require_once('class-wc-gateway-payssion-boacompra.php');
 	require_once('class-wc-gateway-payssion-cashu.php');
 	require_once('class-wc-gateway-payssion-creditcardjp.php');
 	require_once('class-wc-gateway-payssion-docomojp.php');
@@ -64,6 +65,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_BitCashJP',
 						'WC_Gateway_Payssion_Bitcoin',
 						'WC_Gateway_Payssion_Boleto',
+						'WC_Gateway_Payssion_Boacompra',
 						'WC_Gateway_Payssion_CashU',
 						'WC_Gateway_Payssion_CreditCardJP',
 						'WC_Gateway_Payssion_Dragonpay',
