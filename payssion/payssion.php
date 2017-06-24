@@ -27,6 +27,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-cashu.php');
 	require_once('class-wc-gateway-payssion-creditcardjp.php');
 	require_once('class-wc-gateway-payssion-docomojp.php');
+	require_once('class-wc-gateway-payssion-dotpaypl.php');
 	require_once('class-wc-gateway-payssion-dragonpay.php');
 	require_once('class-wc-gateway-payssion-enets.php');
 	require_once('class-wc-gateway-payssion-mercadopago.php');
@@ -68,6 +69,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Boacompra',
 						'WC_Gateway_Payssion_CashU',
 						'WC_Gateway_Payssion_CreditCardJP',
+						'WC_Gateway_Payssion_Dotpaypl',
 						'WC_Gateway_Payssion_Dragonpay',
 						'WC_Gateway_Payssion_Enets',
 						'WC_Gateway_Payssion_MercadoPago',
