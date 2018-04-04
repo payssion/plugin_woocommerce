@@ -46,6 +46,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-redcompra.php');
 	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-santandermx.php');
+	require_once('class-wc-gateway-payssion-sberbankru.php');
 	require_once('class-wc-gateway-payssion-sofort.php');
 	require_once('class-wc-gateway-payssion-tenpay.php');
 	require_once('class-wc-gateway-payssion-trustpay.php');
@@ -90,6 +91,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Redcompra',
 						'WC_Gateway_Payssion_Santander',
 						'WC_Gateway_Payssion_Santandermx',
+						'WC_Gateway_Payssion_Sberbankru',
 						'WC_Gateway_Payssion_SOFORT',
 						'WC_Gateway_Payssion_Tenpay',
 						'WC_Gateway_Payssion_Trustpay',
