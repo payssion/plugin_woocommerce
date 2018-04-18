@@ -15,7 +15,9 @@ function init_payssion_gateway() {
 	
 	require_once('class-wc-gateway-payssion.php');
 	
+	require_once('class-wc-gateway-payssion-affinepgmy.php');
 	require_once('class-wc-gateway-payssion-alipay.php');
+	require_once('class-wc-gateway-payssion-ambmy.php');
 	require_once('class-wc-gateway-payssion-banamex.php');
 	require_once('class-wc-gateway-payssion-bancochile.php');
 	require_once('class-wc-gateway-payssion-bancodobrasil.php');
@@ -24,12 +26,17 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-bitcoin.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
 	require_once('class-wc-gateway-payssion-boacompra.php');
-	require_once('class-wc-gateway-payssion-cashu.php');
+	//require_once('class-wc-gateway-payssion-cashu.php');
+	require_once('class-wc-gateway-payssion-cimbmy.php');
 	require_once('class-wc-gateway-payssion-creditcardjp.php');
 	require_once('class-wc-gateway-payssion-docomojp.php');
 	require_once('class-wc-gateway-payssion-dotpaypl.php');
 	require_once('class-wc-gateway-payssion-dragonpay.php');
 	require_once('class-wc-gateway-payssion-enets.php');
+	require_once('class-wc-gateway-payssion-giropayde.php');
+	require_once('class-wc-gateway-payssion-hlbmy.php');
+	require_once('class-wc-gateway-payssion-idealnl.php');
+	require_once('class-wc-gateway-payssion-maybank2umy.php');
 	require_once('class-wc-gateway-payssion-mercadopago.php');
 	require_once('class-wc-gateway-payssion-molpay.php');
 	require_once('class-wc-gateway-payssion-neosurf.php');
@@ -44,6 +51,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-qiwi.php');
 	require_once('class-wc-gateway-payssion-rapipagoar.php');
 	require_once('class-wc-gateway-payssion-redcompra.php');
+	require_once('class-wc-gateway-payssion-rhbmyy.php');
 	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-santandermx.php');
 	require_once('class-wc-gateway-payssion-sberbankru.php');
