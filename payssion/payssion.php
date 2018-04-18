@@ -51,7 +51,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-qiwi.php');
 	require_once('class-wc-gateway-payssion-rapipagoar.php');
 	require_once('class-wc-gateway-payssion-redcompra.php');
-	require_once('class-wc-gateway-payssion-rhbmyy.php');
+	require_once('class-wc-gateway-payssion-rhbmy.php');
 	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-santandermx.php');
 	require_once('class-wc-gateway-payssion-sberbankru.php');
@@ -69,7 +69,9 @@ function init_payssion_gateway() {
 		return array_merge($methods, 
 				array(
 						'WC_Gateway_Payssion', 
+						'WC_Gateway_Payssion_Affinepgmy',
 						'WC_Gateway_Payssion_Alipay',
+						'WC_Gateway_Payssion_Ambmy',
 						'WC_Gateway_Payssion_Banamex',
 						'WC_Gateway_Payssion_Bancochile',
 						'WC_Gateway_Payssion_Bancodobrasil',
@@ -78,11 +80,16 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Bitcoin',
 						'WC_Gateway_Payssion_Boleto',
 						'WC_Gateway_Payssion_Boacompra',
-						'WC_Gateway_Payssion_CashU',
+						//'WC_Gateway_Payssion_CashU',
+						'WC_Gateway_Payssion_cimbmy',
 						'WC_Gateway_Payssion_CreditCardJP',
 						'WC_Gateway_Payssion_Dotpaypl',
 						'WC_Gateway_Payssion_Dragonpay',
 						'WC_Gateway_Payssion_Enets',
+						'WC_Gateway_Payssion_Giropayde',
+						'WC_Gateway_Payssion_Hlbmy',
+						'WC_Gateway_Payssion_Idealnl',
+						'WC_Gateway_Payssion_Maybank2umy',
 						'WC_Gateway_Payssion_MercadoPago',
 						'WC_Gateway_Payssion_Molpay',
 						'WC_Gateway_Payssion_Neosurf',
@@ -97,6 +104,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_QIWI',
 						'WC_Gateway_Payssion_Rapipagoar',
 						'WC_Gateway_Payssion_Redcompra',
+						'WC_Gateway_Payssion_Rhbmy',
 						'WC_Gateway_Payssion_Santander',
 						'WC_Gateway_Payssion_Santandermx',
 						'WC_Gateway_Payssion_Sberbankru',

@@ -4,6 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+include_once( 'class-wc-gateway-payssion-order.php' );
+
 /**
  * Generates requests to send to Payssion
  */
@@ -59,6 +61,7 @@ class WC_Gateway_Payssion_Request {
 	 * @return array
 	 */
 	protected function get_payssion_args( $order ) {
+		$order = new WC_Gateway_Payssion_Order($order);
 		WC_Gateway_Payssion::log( 'Generating payment form for order ' . $order->get_order_number() . '. Notify URL: ' . $this->notify_url );
 
 		$order_total = number_format($order->order_total, 2, '.', '');
@@ -82,7 +85,7 @@ class WC_Gateway_Payssion_Request {
 				'payer_email'   => $order->billing_email
 		);
 		$data['api_sig'] = $this->generateSignature($data, $this->gateway->get_secretkey());
-		return apply_filters( 'woocommerce_Payssion_args', $data, $order );
+		return apply_filters( 'woocommerce_Payssion_args', $data, $order->getOrginOrder());
 	}
 
 	private function generateSignature(&$req, $secretKey) {
@@ -98,6 +101,7 @@ class WC_Gateway_Payssion_Request {
 	 * @return array
 	 */
 	protected function get_phone_number_args( $order ) {
+		$order = new WC_Gateway_Payssion_Order($order);
 		if ( in_array( $order->billing_country, array( 'US','CA' ) ) ) {
 			$phone_number = str_replace( array( '(', '-', ' ', ')', '.' ), '', $order->billing_phone );
 			$phone_args   = array(
@@ -123,6 +127,7 @@ class WC_Gateway_Payssion_Request {
 	 * @return array
 	 */
 	protected function get_shipping_args( $order ) {
+		$order = new WC_Gateway_Payssion_Order($order);
 		$shipping_args = array();
 
 		if ( 'yes' == $this->gateway->get_option( 'send_shipping' ) ) {
@@ -235,6 +240,7 @@ class WC_Gateway_Payssion_Request {
 	 * @return bool
 	 */
 	protected function prepare_line_items( $order ) {
+		$order = new WC_Gateway_Payssion_Order($order);
 		$this->delete_line_items();
 		$calculated_total = 0;
 

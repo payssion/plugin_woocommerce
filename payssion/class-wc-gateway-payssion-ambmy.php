@@ -15,5 +15,6 @@ require_once( 'class-wc-gateway-payssion.php' );
  * @author 		Payssion
  */
 class WC_Gateway_Payssion_Ambmy extends WC_Gateway_Payssion {
+	public $title = 'Am online';
 	protected $pm_id = 'amb_my';
 }

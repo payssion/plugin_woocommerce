@@ -15,5 +15,6 @@ require_once( 'class-wc-gateway-payssion.php' );
  * @author 		Payssion
  */
 class WC_Gateway_Payssion_Hlbmy extends WC_Gateway_Payssion {
+	public $title = 'Hong Leong';
 	protected $pm_id = 'hlb_my';
 }

@@ -9,11 +9,12 @@ require_once( 'class-wc-gateway-payssion.php' );
 /**
  * Payssion 
  *
- * @class 		WC_Gateway_Payssion_WebMoneyJP
+ * @class 		WC_Gateway_Payssion_WebMoneyjp
  * @extends		WC_Payment_Gateway
  * @version		1.0.1
  * @author 		Payssion
  */
-class WC_Gateway_Payssion_WebMoneyJP extends WC_Gateway_Payssion {
+class WC_Gateway_Payssion_WebMoneyjp extends WC_Gateway_Payssion {
+	public $title = 'Webmoney Japan';
 	protected $pm_id = 'webmoney_jp';
 }

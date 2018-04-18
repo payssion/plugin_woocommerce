@@ -37,11 +37,12 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 		}
 		$index = strrpos($class_name, '_');
 		$this->pm = substr($class_name, $index + 1);
+		
 		$this->id                 = strtolower($this->is_channel ? 'payssion-' . $this->pm : $this->pm);
 		$this->icon               = apply_filters( 'woocommerce_' . $this->pm . '_icon', plugins_url( 'assets/images/' . ($this->pm_id ? $this->pm_id : $this->pm) . '.png', __FILE__ ) );
 		$this->has_fields         = false;
 		$this->order_button_text  = __( 'Proceed to ' . $this->pm, 'woocommerce' );
-		$this->method_title       = __( $this->pm, 'woocommerce' );
+		$this->method_title       = ($this->pm_id ? 'Payssion ' : '') . $this->getMethodTitle();
 		$this->method_description = __( $this->is_channel ? '' : 'Payssion provides a global payment solution.', 'woocommerce' );
 		$this->supports           = array(
 			'products'
@@ -59,7 +60,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 			$this->title .= ' Sandbox';
 		}
 		$this->description    = $this->get_option( 'description' );
-
+		$this->enabled        = $this->get_option( 'enabled' );
 		self::$log_enabled    = $this->debug;
 
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
@@ -71,6 +72,21 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 			include_once( 'includes/class-wc-gateway-payssion-notify-handler.php' );
 			new WC_Gateway_Payssion_Notify_Handler( $this->testmode);
 		}
+	}
+	
+	protected function getMethodTitle() {
+		$method_title = '';
+		if ($this->title) {
+			$method_title = $this->title;
+		} else {
+			$method_title = __( $this->pm, 'woocommerce' );
+			$index = strrpos($this->pm_id, '_');
+			if ($index && substr($this->pm_id, $index + 1) == substr($method_title, strlen($method_title) - 2)) {
+				$method_title = substr($method_title, 0, strlen($method_title) - 2);
+			}
+		}
+		
+		return $method_title;
 	}
 	
 	protected $api_key;
@@ -149,19 +165,20 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	 * Initialise Gateway Settings Form Fields
 	 */
 	public function init_form_fields() {
+		$method_title = $this->getMethodTitle();
 		if ($this->is_channel) {
 			$this->form_fields = array(
 					'enabled' => array(
 							'title'   => __( 'Enable/Disable', 'woocommerce' ),
 							'type'    => 'checkbox',
-							'label'   => __( 'Enable ' . $this->pm, 'woocommerce' ),
-							'default' => 'yes'
+							'label'   => __( 'Enable ' . $method_title, 'woocommerce' ),
+							'default' => 'no'
 					),
 					'title' => array(
 							'title'       => __( 'Title', 'woocommerce' ),
 							'type'        => 'text',
 							'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-							'default'     => __( $this->title ? $this->title : $this->pm, 'woocommerce' ),
+							'default'     => $method_title,
 							'desc_tip'    => true,
 					),
 					'description' => array(
@@ -169,25 +186,11 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 							'type'        => 'text',
 							'desc_tip'    => true,
 							'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce' ),
-							'default'     => __( $this->description ? $this->description : ('Pay via ' . $this->pm), 'woocommerce' )
+							'default'     => __( $this->description ? $this->description : ('Pay via ' . $method_title), 'woocommerce' )
 					)
 			);
 		} else {
 			$this->form_fields = array(
-					'title' => array(
-							'title'       => __( 'Title', 'woocommerce' ),
-							'type'        => 'text',
-							'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce' ),
-							'default'     => __( $this->pm, 'woocommerce' ),
-							'desc_tip'    => true,
-					),
-					'description' => array(
-							'title'       => __( 'Description', 'woocommerce' ),
-							'type'        => 'text',
-							'desc_tip'    => true,
-							'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce' ),
-							'default'     => __( 'Pay via ' . $this->pm, 'woocommerce' )
-					),
 					'testmode' => array(
 							'title'       => __( 'Payssion Sandbox', 'woocommerce' ),
 							'type'        => 'checkbox',
@@ -208,18 +211,6 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 							'description' => __( 'Please enter a prefix for your invoice numbers. If you use your Payssion account for multiple stores ensure this prefix is unique as Payssion will not allow orders with the same invoice number.', 'woocommerce' ),
 							'default'     => 'WC-',
 							'desc_tip'    => true,
-					),
-					'paymentaction' => array(
-							'title'       => __( 'Payment Action', 'woocommerce' ),
-							'type'        => 'select',
-							'class'       => 'wc-enhanced-select',
-							'description' => __( 'Choose whether you wish to capture funds immediately or authorize payment only.', 'woocommerce' ),
-							'default'     => 'sale',
-							'desc_tip'    => true,
-							'options'     => array(
-									'sale'          => __( 'Capture', 'woocommerce' ),
-									'authorization' => __( 'Authorize', 'woocommerce' )
-							)
 					),
 					'api_details' => array(
 							'title'       => __( 'API Credentials', 'woocommerce' ),

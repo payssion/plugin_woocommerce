@@ -4,6 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+include_once( 'class-wc-gateway-payssion-order.php' );
+
 /**
  * Handles refunds
  */
@@ -26,6 +28,7 @@ abstract class WC_Gateway_Payssion_Response {
 			$order 		= wc_get_order( $order_id );
 		}
 
+		$order = new WC_Gateway_Payssion_Order($order);
 		if ( ! $order || $order->order_key !== $sub_track_id ) {
 			WC_Gateway_Payssion::log( 'Error: Order Keys do not match.' );
 			return false;
