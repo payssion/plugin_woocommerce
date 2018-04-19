@@ -1,9 +1,9 @@
  === Payssion Plugin for Woocommerce ===
 Contributors: Payssion
 Tags: payment, paymentgateway, woocommerce, ecommerce, sofortbanking, paysafecard, iDeal, przelewy24, webmoney, qiwi, boleto, alipay, tenpay, eNETS
-Requires at least: 4.0 & WooCommerce 2.1+
-Tested up to: 4.7.1 & Woocommerce 2.4.6
-Stable tag: 1.0.1
+Requires at least: 4.0
+Tested up to: 4.9.5
+Stable tag: 1.1.0
 License: The MIT License (MIT)
 
 Official Payssion module for WordPress WooCommerce.
@@ -11,19 +11,42 @@ Official Payssion module for WordPress WooCommerce.
 == Description ==
 Payssion is a global payment solution provider, that enables people to collect payments all over the world without hassle. Through Payssion platform, people could get access to 200+ local and international payment methods in over 200 countries.
 
-= Payment methods for Europe =
-* Germany: Sofortbanking
-* Poland: Przelewy24
-* Netherlands: iDeal
-* Russia: QIWI, Webmoney, Yandex.Money
-
-= Payment methods for Asia =
-* China: Alipay, Tenpay and Unionpay
+= Payment methods for Asia Pacific =
+* Australia: Polipayment
+* China: Alipay, Tenpay, Unionpay
+* Japan: Credit card, Webmomey, Netcash, Bitcash, Docomo
+* Malaysia: Maybank2u, Am online, CIMB Clicks, Hong Leong, RHB Now, Affin Bank, Molpay, Molpoints
+* New Zealand: Polipayment
+* Philippines: Dragonpay
 * Singapore: eNETS
-* Malaysia: molpoints, Maybank2u
+* Vietnam: VTCPay
+
+= Payment methods for Europe =
+* Belgium: Bancontact
+* France: Neosurf
+* Germany: Sofortbanking, Giropay
+* Netherlands: iDeal
+* Poland: Dotpay
+* Russia: QIWI, Webmoney, Yandex.Money, Sberbank
+* Slovakia: Trustpay
+* Multiple countries: Paysafecard
+
+= Payment methods for Latin America =
+* Argentina: Rapi Pago, Pagofacil
+* Brazil: Boleto, Banco Santander Brasil, Banco do Brasil
+* Chile: Banco de Chile
+* Mexico: OXXO, Santander Mexico, Banamex
+* Multiple countries: Boacompra
+
+= Payment methods for Middle East =
+* Multiple countries: Onecard
+
+= Payment methods for all countries =
+* Bitcoin
+
 
 == Frequently Asked Questions ==
-* Integration document: <https://www.payssion.com/en>
+* Integration document: <https://www.payssion.com/en/docs>
 * Technical support team: <technical@payssion.com>
 
 == Installation ==
@@ -39,6 +62,9 @@ Payssion is a global payment solution provider, that enables people to collect p
 1. Screenshot 1 - Payssion Settings Page
 
 == Changelog ==
+
+= 1.1.0 =
+* add support for WooCommerce 3.0 (backwards compatible)
 
 = 1.0.1 =
 * add more payment options
