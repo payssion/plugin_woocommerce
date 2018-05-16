@@ -50,6 +50,12 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 // 				$posted['payment_status'] = 'completed';
 // 			}
 
+			if (!$this->isPayssion($order->payment_method)) {
+				if ($posted['state'] != 'completed') {
+					die ("payment method changed");
+				}
+			}
+			
 			WC_Gateway_Payssion::log( 'Found order #' . $order->id );
 			WC_Gateway_Payssion::log( 'Payment status: ' . $posted['state'] );
 
@@ -60,6 +66,10 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 		} else {
 			die ("order not found ");
 		}
+	}
+	
+	protected function isPayssion($payment_method) {
+		return substr($payment_method, 0, strlen('payssion')) === 'payssion';
 	}
 
 	/**
