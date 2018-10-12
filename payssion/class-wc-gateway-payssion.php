@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @class 		WC_Gateway_Payssion
  * @extends		WC_Payment_Gateway
- * @version		1.1.0
+ * @version		1.1.1
  * @package		WooCommerce/Classes/Payment
  * @author 		Payssion
  */

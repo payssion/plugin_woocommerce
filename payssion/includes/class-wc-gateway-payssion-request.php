@@ -74,7 +74,7 @@ class WC_Gateway_Payssion_Request {
 				'amount'        => $order_total,
 				'currency'      => get_woocommerce_currency(),
 				'success_url'  => esc_url($this->gateway->get_return_url($order)),
-				'redirect_url' => get_permalink(woocommerce_get_page_id('myaccount')),
+				'redirect_url' =>  get_permalink(function_exists('woocommerce_get_page_id') ? woocommerce_get_page_id('myaccount') : wc_get_page_id('myaccount')),
 				'description'   => sprintf(__(get_bloginfo( 'name' ) . ' Order #%s', $this->text_domain), $order->get_order_number()),
 				'track_id'      => $order->id,
 				'sub_track_id'  => $order->order_key,

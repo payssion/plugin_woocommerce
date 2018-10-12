@@ -63,6 +63,9 @@ Payssion is a global payment solution provider, that enables people to collect p
 
 == Changelog ==
 
+= 1.1.1 =
+* add more payment options: doku, itau, multibanco, pse, redpagos, webpay
+
 = 1.1.0 =
 * add support for WooCommerce 3.0 (backwards compatible)
 

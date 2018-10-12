@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Payssion
 Plugin URI: http://www.payssion.com
 Description: Integrates your Payssion payment getway into your WooCommerce installation.
-Version: 1.1.0
+Version: 1.1.1
 Author: Payssion
 Text Domain: payssion
 Author URI: http://www.payssion.com
@@ -30,15 +30,18 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-cimbmy.php');
 	require_once('class-wc-gateway-payssion-creditcardjp.php');
 	require_once('class-wc-gateway-payssion-docomojp.php');
+	require_once('class-wc-gateway-payssion-dokuid.php');
 	require_once('class-wc-gateway-payssion-dotpaypl.php');
 	require_once('class-wc-gateway-payssion-dragonpay.php');
 	require_once('class-wc-gateway-payssion-enets.php');
 	require_once('class-wc-gateway-payssion-giropayde.php');
 	require_once('class-wc-gateway-payssion-hlbmy.php');
 	require_once('class-wc-gateway-payssion-idealnl.php');
+	require_once('class-wc-gateway-payssion-itaubr.php');
 	require_once('class-wc-gateway-payssion-maybank2umy.php');
 	//require_once('class-wc-gateway-payssion-mercadopago.php');
 	require_once('class-wc-gateway-payssion-molpay.php');
+	require_once('class-wc-gateway-payssion-multibancopt.php');
 	require_once('class-wc-gateway-payssion-neosurf.php');
 	require_once('class-wc-gateway-payssion-netcashjp.php');
 	//require_once('class-wc-gateway-payssion-nganluong.php');
@@ -48,9 +51,11 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-pagofacilar.php');
 	require_once('class-wc-gateway-payssion-paysafecard.php');
 	require_once('class-wc-gateway-payssion-poli.php');
+	require_once('class-wc-gateway-payssion-pseco.php');
 	require_once('class-wc-gateway-payssion-qiwi.php');
 	require_once('class-wc-gateway-payssion-rapipagoar.php');
 	require_once('class-wc-gateway-payssion-redcompra.php');
+	require_once('class-wc-gateway-payssion-redpagosuy.php');
 	require_once('class-wc-gateway-payssion-rhbmy.php');
 	require_once('class-wc-gateway-payssion-santander.php');
 	require_once('class-wc-gateway-payssion-santandermx.php');
@@ -62,6 +67,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-vtcpay.php');
 	require_once('class-wc-gateway-payssion-webmoney.php');
 	require_once('class-wc-gateway-payssion-webmoneyjp.php');
+	require_once('class-wc-gateway-payssion-webpaycl.php');
 	require_once('class-wc-gateway-payssion-yamoney.php');
 	
 	// Add the gateway to WooCommerce
@@ -84,15 +90,18 @@ function init_payssion_gateway() {
 						//'WC_Gateway_Payssion_CashU',
 						'WC_Gateway_Payssion_cimbmy',
 						'WC_Gateway_Payssion_CreditCardjp',
+						'WC_Gateway_Payssion_Dokuid',
 						'WC_Gateway_Payssion_Dotpaypl',
 						'WC_Gateway_Payssion_Dragonpay',
 						'WC_Gateway_Payssion_Enets',
 						'WC_Gateway_Payssion_Giropayde',
 						'WC_Gateway_Payssion_Hlbmy',
 						'WC_Gateway_Payssion_Idealnl',
+						'WC_Gateway_Payssion_Itaubr',
 						'WC_Gateway_Payssion_Maybank2umy',
 						//'WC_Gateway_Payssion_MercadoPago',
 						'WC_Gateway_Payssion_Molpay',
+						'WC_Gateway_Payssion_Multibancopt',
 						'WC_Gateway_Payssion_Neosurf',
 						'WC_Gateway_Payssion_NetCashjp',
 						//'WC_Gateway_Payssion_Nganluong',
@@ -102,9 +111,11 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Pagofacilar',
 						'WC_Gateway_Payssion_Paysafecard',
 						'WC_Gateway_Payssion_POLi',
+						'WC_Gateway_Payssion_PSEco',
 						'WC_Gateway_Payssion_QIWI',
 						'WC_Gateway_Payssion_Rapipagoar',
 						'WC_Gateway_Payssion_Redcompra',
+						'WC_Gateway_Payssion_Redpagosuy',
 						'WC_Gateway_Payssion_Rhbmy',
 						'WC_Gateway_Payssion_Santander',
 						'WC_Gateway_Payssion_Santandermx',
@@ -116,6 +127,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_VTCPay',
 						'WC_Gateway_Payssion_WebMoney',
 						'WC_Gateway_Payssion_WebMoneyjp',
+						'WC_Gateway_Payssion_Webpaycl',
 						'WC_Gateway_Payssion_Yamoney'));
 	}
 	add_filter('woocommerce_payment_gateways', 'add_payssion_gateway' );
