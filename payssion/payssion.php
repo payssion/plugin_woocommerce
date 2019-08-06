@@ -43,6 +43,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-ebankingin.php');
 	require_once('class-wc-gateway-payssion-ebankingkr.php');
 	require_once('class-wc-gateway-payssion-ebankingmy.php');
+	require_once('class-wc-gateway-payssion-ebankingth.php');
 	require_once('class-wc-gateway-payssion-enets.php');
 	require_once('class-wc-gateway-payssion-epsat.php');
 	require_once('class-wc-gateway-payssion-fpxmy.php');

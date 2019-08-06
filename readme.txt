@@ -22,6 +22,7 @@ Payssion is a global payment solution provider, that enables people to collect p
 * Philippines: Dragonpay, Globe Gcash
 * Singapore: eNETS
 * South Korea: Credit Card, Internet Banking
+* Thailand: Thailand online Banking
 * Vietnam: VTCPay
 
 = Payment methods for Europe =
