@@ -2,8 +2,8 @@
 Contributors: Payssion
 Tags: payment, paymentgateway, woocommerce, ecommerce, sofortbanking, paysafecard, iDeal, przelewy24, webmoney, qiwi, boleto, alipay, tenpay, eNETS
 Requires at least: 4.0
-Tested up to: 4.9.5
-Stable tag: 1.1.0
+Tested up to: 5.2.2
+Stable tag: 1.1.3
 License: The MIT License (MIT)
 
 Official Payssion module for WordPress WooCommerce.
@@ -14,26 +14,30 @@ Payssion is a global payment solution provider, that enables people to collect p
 = Payment methods for Asia Pacific =
 * Australia: Polipayment
 * China: Alipay, Tenpay, Unionpay
-* Japan: Credit card, Webmomey, Netcash, Bitcash, Docomo
-* Malaysia: Maybank2u, Am online, CIMB Clicks, Hong Leong, RHB Now, Affin Bank, Molpay, Molpoints
+* Indonesia: ATM, DOKU, Alfamart
+* Inida: UPI, Netbanking, Credit/Debit Card
+* Japan: Credit card, Webmomey, Netcash, Bitcash
+* Malaysia: Malaysia e-banking, FPX, Maybank2u, Molpoints
 * New Zealand: Polipayment
-* Philippines: Dragonpay
+* Philippines: Dragonpay, Globe Gcash
 * Singapore: eNETS
+* South Korea: Credit Card, Internet Banking
 * Vietnam: VTCPay
 
 = Payment methods for Europe =
+* Austria: EPS
 * Belgium: Bancontact
 * France: Neosurf
 * Germany: Sofortbanking, Giropay
 * Netherlands: iDeal
-* Poland: Dotpay
+* Poland: Dotpay, P24, PayU
 * Russia: QIWI, Webmoney, Yandex.Money, Sberbank
-* Slovakia: Trustpay
-* Multiple countries: Paysafecard
+* Turkey: Credit/Bank Card
+* Multiple countries: Europen SEPA bank transfer, Paysafecard
 
 = Payment methods for Latin America =
-* Argentina: Rapi Pago, Pagofacil
-* Brazil: Boleto, Banco Santander Brasil, Banco do Brasil
+* Argentina: Rapi Pago, Pagofacil, Santander
+* Brazil: Boleto, Itaú, Banco Santander Brasil, Banco do Brasil
 * Chile: Banco de Chile
 * Mexico: OXXO, Santander Mexico, Banamex
 * Multiple countries: Boacompra
@@ -62,6 +66,12 @@ Payssion is a global payment solution provider, that enables people to collect p
 1. Screenshot 1 - Payssion Settings Page
 
 == Changelog ==
+
+= 1.1.3 =
+* add more payment options: ATM, DOKU, Alfamart, Malaysia e-banking, Globe Gcash, Itaú, EPS, P24, PayUIndia payment methods (UPI, Netbanking, Credit/Debit Card), South Korea (Credit Card, Internet Banking)
+
+= 1.1.2 =
+* add more payment options: Turkish bank card, Europe bank transfer, Santander Rio Argentina
 
 = 1.1.1 =
 * add more payment options: doku, itau, multibanco, pse, redpagos, webpay

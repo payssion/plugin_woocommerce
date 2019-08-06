@@ -41,8 +41,10 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 		$this->id                 = strtolower($this->is_channel ? 'payssion-' . $this->pm : $this->pm);
 		$this->icon               = apply_filters( 'woocommerce_' . $this->pm . '_icon', plugins_url( 'assets/images/' . ($this->pm_id ? $this->pm_id : $this->pm) . '.png', __FILE__ ) );
 		$this->has_fields         = false;
-		$this->order_button_text  = __( 'Proceed to ' . $this->pm, 'woocommerce' );
-		$this->method_title       = ($this->pm_id ? 'Payssion ' : '') . $this->getMethodTitle();
+		
+		$method_title = $this->getMethodTitle();
+		$this->order_button_text  = __( 'Proceed to ' . $method_title, 'woocommerce' );
+		$this->method_title       = ($this->pm_id ? 'Payssion ' : '') . $method_title;
 		$this->method_description = __( $this->is_channel ? '' : 'Payssion provides a global payment solution.', 'woocommerce' );
 		$this->supports           = array(
 			'products'
@@ -142,7 +144,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	 * @return bool
 	 */
 	public function is_valid_for_use() {
-		return true;
+		return $this->is_channel;
 	}
 
 	/**
@@ -152,7 +154,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	 * @since 1.0.0
 	 */
 	public function admin_options() {
-		if ( $this->is_valid_for_use() ) {
+		if (true) {
 			parent::admin_options();
 		} else {
 			?>

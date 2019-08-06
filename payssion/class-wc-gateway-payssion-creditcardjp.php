@@ -14,5 +14,6 @@ require_once( 'class-wc-gateway-payssion.php' );
  * @author 		Payssion
  */
 class WC_Gateway_Payssion_CreditCardjp extends WC_Gateway_Payssion {
+	public $title = 'Japan Visa/Mastercard';
 	protected $pm_id = 'creditcard_jp';
 }

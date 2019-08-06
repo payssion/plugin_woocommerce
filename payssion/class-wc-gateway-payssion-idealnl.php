@@ -14,5 +14,6 @@ require_once( 'class-wc-gateway-payssion.php' );
  * @author 		Payssion
  */
 class WC_Gateway_Payssion_Idealnl extends WC_Gateway_Payssion {
+	public $title = 'iDeal';
 	protected $pm_id = 'ideal_nl';
 }
