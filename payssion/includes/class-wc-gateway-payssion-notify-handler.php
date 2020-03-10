@@ -118,11 +118,12 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 		$order_amount = number_format( $order->get_total(), 2, '.', '' );
 		$order_currency = $order->get_order_currency();
 		$currency = $posted['currency'];
-		$amount = $posted['amount'];
+		$amount = $posted['paid'];
 		$error = false;
 		$error_amount = null;
 		$error_currency = null;
 		if ($order_currency == $currency) {
+			$error_currency = $currency;
 			if ($order_amount != $amount) {
 				$error = 1;
 				$error_amount = $amount;
@@ -130,6 +131,7 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 		} else {
 			$currency_local = @$posted['currency_local'];
 			if ($currency_local) {
+				$error_currency = $currency_local;
 				if ($order_currency == $currency_local) {
 					$amount_local = @$posted['amount_local'];
 					if ($order_amount != $amount_local) {
@@ -138,7 +140,6 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 			        }
 				} else {
 					$error = 2;
-					$error_currency = $currency_local;
 				}
 			} else {
 				$error = 2;
@@ -147,10 +148,15 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 		}
 		
 		if (1 == $error) {
-			WC_Gateway_Payssion::log( 'Payment error: Amounts do not match (gross ' . $error_amount . ')' );
-			
-			// Put this order on-hold for manual checking
-			$order->update_status( 'on-hold', sprintf( __( 'Validation error: Payssion amounts do not match (gross %s).', 'woocommerce' ), $error_amount ) );
+			if ($error_amount > 0 && $error_amount < $order_amount) {
+				$order->update_status( 'paid-partial', sprintf( __( 'Partial Paid %s.', 'woocommerce' ), "$error_amount $error_currency") );
+			} else {
+				WC_Gateway_Payssion::log( 'Payment error: Amounts do not match (gross ' . $error_amount . ')' );
+					
+				// Put this order on-hold for manual checking
+				$order->update_status( 'on-hold', sprintf( __( 'Validation error: Payssion amounts do not match (gross %s).', 'woocommerce' ), $error_amount ) );
+			}
+
 			exit;
 		} else if (2 == $error) {
 			WC_Gateway_Payssion::log( 'Payment error: Currencies do not match (sent "' . $order->get_order_currency() . '" | returned "' . $error_currency . '")' );
@@ -210,6 +216,21 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 		} else {
 			$this->payment_on_hold( $order, sprintf( __( 'Payment pending', 'woocommerce' )) );
 		}
+	}
+	
+
+	/**
+	 * Handle a paid_partial payment
+	 * @param  WC_Order $order
+	 */
+	private function payment_status_paid_partial( $order, $posted ) {
+		if ( $order->has_status( 'paid_partial' ) ) {
+			die ('paid_partial handled before');
+			WC_Gateway_Payssion::log( 'Aborting, Order #' . $order->id . ' is already handled before.' );
+			exit;
+		}
+	
+		$this->validate_amount_currency( $order, $posted );
 	}
 
 	/**

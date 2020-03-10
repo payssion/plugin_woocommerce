@@ -54,6 +54,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-itaubr.php');
 	require_once('class-wc-gateway-payssion-maybank2umy.php');
 	//require_once('class-wc-gateway-payssion-mercadopago.php');
+	require_once('class-wc-gateway-payssion-mercadopagomx.php');
 	//require_once('class-wc-gateway-payssion-molpay.php');
 	require_once('class-wc-gateway-payssion-multibancopt.php');
 	require_once('class-wc-gateway-payssion-neosurf.php');
@@ -65,6 +66,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-p24pl.php');
 	require_once('class-wc-gateway-payssion-pagofacilar.php');
 	require_once('class-wc-gateway-payssion-paysafecard.php');
+	require_once('class-wc-gateway-payssion-paytmin.php');
 	require_once('class-wc-gateway-payssion-payupl.php');
 	require_once('class-wc-gateway-payssion-poli.php');
 	require_once('class-wc-gateway-payssion-pseco.php');
@@ -132,7 +134,8 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_Itaubr',
 						'WC_Gateway_Payssion_Maybank2umy',
 						//'WC_Gateway_Payssion_MercadoPago',
-						'WC_Gateway_Payssion_Molpay',
+						'WC_Gateway_Payssion_MercadoPagomx',
+						//'WC_Gateway_Payssion_Molpay',
 						'WC_Gateway_Payssion_Multibancopt',
 						'WC_Gateway_Payssion_Neosurf',
 						'WC_Gateway_Payssion_NetCashjp',
@@ -143,6 +146,7 @@ function init_payssion_gateway() {
 						'WC_Gateway_Payssion_P24pl',
 						'WC_Gateway_Payssion_Pagofacilar',
 						'WC_Gateway_Payssion_Paysafecard',
+						'WC_Gateway_Payssion_Paytmin',
 						'WC_Gateway_Payssion_Payupl',
 						'WC_Gateway_Payssion_POLi',
 						'WC_Gateway_Payssion_PSEco',
@@ -178,4 +182,22 @@ function init_payssion_gateway() {
 	}
 	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'wc_payssion_plugin_edit_link' );
 }
+
+// Register new status
+function register_payssion_paid_partial_order_status() {
+	register_post_status( 'wc-paid-partial', array(
+			'label'                     => 'Paid partial',
+			'public'                    => true,
+			'exclude_from_search'       => false,
+			'show_in_admin_all_list'    => true,
+			'show_in_admin_status_list' => true,
+			'label_count'               => _n_noop( 'Paid partial (%s)', 'Paid partial (%s)' )
+	) );
+}
+add_action( 'init', 'register_payssion_paid_partial_order_status' );
+function add_payssion_order_statuses( $order_statuses ) {
+	$order_statuses['wc-paid-partial'] = _x( 'Paid partial', 'WooCommerce Order status', 'text_domain' );
+	return $order_statuses;
+}
+add_filter( 'wc_order_statuses', 'add_payssion_order_statuses' );
 ?>

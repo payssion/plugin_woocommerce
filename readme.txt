@@ -68,6 +68,9 @@ Payssion is a global payment solution provider, that enables people to collect p
 
 == Changelog ==
 
+= 1.1.4 =
+* add more payment options: Paytm, Mercadopago Mexico
+
 = 1.1.3 =
 * add more payment options: ATM, DOKU, Alfamart, Malaysia e-banking, Globe Gcash, Itaú, EPS, P24, PayUIndia payment methods (UPI, Netbanking, Credit/Debit Card), South Korea (Credit Card, Internet Banking)
 
