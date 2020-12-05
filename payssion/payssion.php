@@ -54,6 +54,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-hlbmy.php');
 	require_once('class-wc-gateway-payssion-idealnl.php');
 	require_once('class-wc-gateway-payssion-itaubr.php');
+	//require_once('class-wc-gateway-payssion-klarna.php');
 	require_once('class-wc-gateway-payssion-maybank2umy.php');
 	//require_once('class-wc-gateway-payssion-mercadopago.php');
 	require_once('class-wc-gateway-payssion-mercadopagomx.php');
@@ -70,6 +71,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-paysafecard.php');
 	require_once('class-wc-gateway-payssion-paytmin.php');
 	require_once('class-wc-gateway-payssion-payupl.php');
+	require_once('class-wc-gateway-payssion-pixbr.php');
 	require_once('class-wc-gateway-payssion-poli.php');
 	require_once('class-wc-gateway-payssion-pseco.php');
 	require_once('class-wc-gateway-payssion-qiwi.php');
@@ -136,6 +138,7 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_Hlbmy',
 				    'WC_Gateway_Payssion_Idealnl',
 				    'WC_Gateway_Payssion_Itaubr',
+				    //'WC_Gateway_Payssion_Klarna',
 				    'WC_Gateway_Payssion_Maybank2umy',
 				    //'WC_Gateway_Payssion_MercadoPago',
 				    'WC_Gateway_Payssion_MercadoPagomx',
@@ -152,6 +155,7 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_Paysafecard',
 				    'WC_Gateway_Payssion_Paytmin',
 				    'WC_Gateway_Payssion_Payupl',
+				    'WC_Gateway_Payssion_Pixbr',
 				    'WC_Gateway_Payssion_POLi',
 				    'WC_Gateway_Payssion_PSEco',
 				    'WC_Gateway_Payssion_QIWI',

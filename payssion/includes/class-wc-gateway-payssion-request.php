@@ -37,7 +37,7 @@ class WC_Gateway_Payssion_Request {
 		$this->gateway    = $gateway;
 		$this->notify_url = WC()->api_request_url( 'WC_Gateway_Payssion' );
 	}
-
+	
 	/**
 	 * Get the Payssion request URL for an order
 	 * @param  WC_Order  $order
@@ -45,13 +45,20 @@ class WC_Gateway_Payssion_Request {
 	 * @return string
 	 */
 	public function get_request_url( $order, $sandbox = false ) {
+	    $url = null;
+	    if ($sandbox) {
+	        $url = 'http://sandbox.payssion.com/payment/create.html';
+	    } else {
+	        $url = 'https://www.payssion.com/payment/create.html';
+	    }
+	    
 		$Payssion_args = http_build_query( $this->get_payssion_args( $order ), '', '&' );
-
-		if ( $sandbox ) {
-			return 'http://sandbox.payssion.com/payment/create.html?' . $Payssion_args;
-		} else {
-			return 'https://www.payssion.com/payment/create.html?' . $Payssion_args;
+		if ($order) {
+		    $Payssion_args = http_build_query( $this->get_payssion_args( $order ), '', '&' );
+		    $url .= "?$Payssion_args";
 		}
+
+		return $url;
 	}
 
 	/**
@@ -60,7 +67,7 @@ class WC_Gateway_Payssion_Request {
 	 * @param WC_Order $order
 	 * @return array
 	 */
-	protected function get_payssion_args( $order ) {
+	public function get_payssion_args( $order, $apply_filters = true) {
 		$order = new WC_Gateway_Payssion_Order($order);
 		WC_Gateway_Payssion::log( 'Generating payment form for order ' . $order->get_order_number() . '. Notify URL: ' . $this->notify_url );
 
@@ -68,23 +75,38 @@ class WC_Gateway_Payssion_Request {
 		$payssion = new WC_Gateway_Payssion();
 		
 		$data = array(
-				'source'        => 'woocommerce',
-				'api_key'       => $this->gateway->get_apikey(),
-				'pm_id'         => $this->gateway->get_pmid(),
-				'amount'        => $order_total,
-				'currency'      => get_woocommerce_currency(),
-				'return_url'  => esc_url($this->gateway->get_return_url($order)),
-				'description'   => sprintf(__(get_bloginfo( 'name' ) . ' Order #%s', $this->text_domain), $order->get_order_number()),
-				'track_id'      => $order->id,
-				'sub_track_id'  => $order->order_key,
-				'notify_url'    => $this->notify_url,
-				'payer_ref'     => $_POST['payer_ref'],
-				'payer_name'    => $order->billing_first_name . ' ' . $order->billing_last_name,
-				'country'       => $order->billing_country,
-				'payer_email'   => $order->billing_email
+		    'source'        => 'woocommerce',
+		    'api_key'       => $this->gateway->get_apikey(),
+		    'pm_id'         => $this->gateway->get_pmid(),
+		    'amount'        => $order_total,
+		    'currency'      => get_woocommerce_currency(),
+		    'return_url'  => esc_url($this->gateway->get_return_url($order)),
+		    'description'   => sprintf(__(get_bloginfo( 'name' ) . ' Order #%s', $this->text_domain), $order->get_order_number()),
+		    'track_id'      => $order->id,
+		    'sub_track_id'  => $order->order_key,
+		    'notify_url'    => $this->notify_url,
+		    'payer_name'    => $order->billing_first_name . ' ' . $order->billing_last_name,
+		    'country'       => $order->billing_country,
+		    'payer_email'   => $order->billing_email
 		);
+		
+		if (array_key_exists('payer_ref', $_POST)) {
+		    $data['payer_ref'] = $_POST['payer_ref'];
+		} else {
+		    $payer_ref_key = 'payer_ref_' . $this->gateway->get_pmid();
+		    if (array_key_exists($payer_ref_key, $_POST)) {
+		        $data['payer_ref'] = $_POST[$payer_ref_key];
+		    }
+		}
 		$data['api_sig'] = $this->generateSignature($data, $this->gateway->get_secretkey());
-		return apply_filters( 'woocommerce_Payssion_args', $data, $order->getOrginOrder());
+		
+		
+		if (substr($pm_id, 0, strlen('klarna')) === 'klarna') {
+		    $data['billing_address'] = $order->get_billing_address();
+		    $data['order_items'] = $order->get_order_lines();
+		}
+		
+		return $apply_filters ? apply_filters( 'woocommerce_Payssion_args', $data, $order->getOrginOrder()) : $data;
 	}
 
 	private function generateSignature(&$req, $secretKey) {

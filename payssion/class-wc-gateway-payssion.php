@@ -66,7 +66,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 		self::$log_enabled    = $this->debug;
 
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-		add_action( 'woocommerce_receipt_' . $this->pm, array( $this, 'receipt_page' ) );
+		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
 		
 		if ( ! $this->is_valid_for_use() ) {
 			$this->enabled = 'no';
@@ -265,15 +265,19 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	 * @return array
 	 */
 	public function process_payment( $order_id ) {
-		include_once('includes/class-wc-gateway-payssion-request.php');
+	    include_once('includes/class-wc-gateway-payssion-request.php');
 
-		$order          = wc_get_order( $order_id );
-		$Payssion_request = new WC_Gateway_Payssion_Request( $this );
-
+		$order = wc_get_order( $order_id );
+		$payssion_request = new WC_Gateway_Payssion_Request( $this ); 
 		return array(
 			'result'   => 'success',
-			'redirect' => $Payssion_request->get_request_url( $order, $this->testmode )
+		    'redirect' => $payssion_request->get_request_url( $order, $this->testmode ),
 		);
+		
+// 		return array(
+// 		    'result' 	=> 'success',
+// 		    'redirect'	=> $order->get_checkout_payment_url( true )
+// 		);
 	}
 	
 	/**
@@ -284,7 +288,7 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	 */
 	function receipt_page( $order ) {
 	
-		echo '<p>' . __('Thank you for your order, please click the button below to pay with Payssion.', 'payssion') . '</p>';
+	    echo '<p>' . "Thank you for your order, please click the button below to pay with {$this->title}." . '</p>';
 	
 		echo $this->generate_payssion_form( $order );
 	}
@@ -297,10 +301,15 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 	 * @return string
 	 */
 	function generate_payssion_form( $order_id ) {
-	
-		$order = new WC_Order($order_id);
-		$payssion_args_array = array('<input type="hidden" name="' . 'key' . '" value="' . 'value' . '" />');
-	
+	    include_once('includes/class-wc-gateway-payssion-request.php');
+	    $request = new WC_Gateway_Payssion_Request($this);
+	    $order = wc_get_order( $order_id );
+	    $request_data = $request->get_payssion_args($order);
+	    $payssion_args_array = [];
+	    foreach ($request_data as $key => $value) {
+	        $payssion_args_array[] = '<input type="hidden" name="' . $key . '" value="' . $value . '" />';
+	    }
+		
 		wc_enqueue_js( '
 				$.blockUI({
 				message: "' . esc_js( __( 'Thank you for your order. We are now redirecting you to payssion to make payment.', 'payssion' ) ) . '",
@@ -324,7 +333,9 @@ class WC_Gateway_Payssion extends WC_Payment_Gateway {
 				jQuery("#submit_payssion_payment_form").click();
 				' );
 	
-		return '<form id="payssionsubmit" name="payssionsubmit" action="www.payssion.com' . '" method="post" target="_top">' . implode('', $payssion_args_array) . '
+		
+		$url = $request->get_request_url(null, $this->testmode );
+		return '<form id="payssionsubmit" name="payssionsubmit" action="' . $url . '" method="post" target="_top">' . implode('', $payssion_args_array) . '
 		<!-- Button Fallback -->
 		<div class="payment_buttons">
 		<input type="submit" class="button-alt" id="submit_payssion_payment_form" value="' . __('Pay via payssion', 'payssion') . '" /> <a class="button cancel" href="' . esc_url($order->get_cancel_order_url()) . '">' . __('Cancel order &amp; restore cart', 'payssion') . '</a>
