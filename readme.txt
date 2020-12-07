@@ -3,7 +3,7 @@ Contributors: Payssion
 Tags: payment, paymentgateway, woocommerce, ecommerce, sofortbanking, paysafecard, iDeal, przelewy24, webmoney, qiwi, boleto, alipay, tenpay, eNETS
 Requires at least: 4.0
 Tested up to: 5.2.2
-Stable tag: 1.1.3
+Stable tag: 1.1.6
 License: The MIT License (MIT)
 
 Official Payssion module for WordPress WooCommerce.
@@ -15,11 +15,11 @@ Payssion is a global payment solution provider, that enables people to collect p
 * Australia: Polipayment
 * China: Alipay, Tenpay, Unionpay
 * Indonesia: ATM, DOKU, Alfamart
-* Inida: UPI, Netbanking, Credit/Debit Card
+* Inida: UPI, Netbanking, Credit/Debit Card, Paytm
 * Japan: Credit card, Webmomey, Netcash, Bitcash
 * Malaysia: Malaysia e-banking, FPX, Maybank2u, Molpoints
 * New Zealand: Polipayment
-* Philippines: Dragonpay, Globe Gcash
+* Philippines: Dragonpay, Globe Gcash, Grabpay
 * Singapore: eNETS
 * South Korea: Credit Card, Internet Banking
 * Thailand: Thailand online Banking
@@ -38,12 +38,13 @@ Payssion is a global payment solution provider, that enables people to collect p
 
 = Payment methods for Latin America =
 * Argentina: Rapi Pago, Pagofacil, Santander
-* Brazil: Boleto, Itaú, Banco Santander Brasil, Banco do Brasil
+* Brazil: PIX, Boleto, Itaú, Banco Santander Brasil, Banco do Brasil, Brasil Credit Card
 * Chile: Banco de Chile
 * Mexico: OXXO, Santander Mexico, Banamex
 * Multiple countries: Boacompra
 
-= Payment methods for Middle East =
+= Payment methods for Middle East & Africa =
+* South Africa: Online Banking
 * Multiple countries: Onecard
 
 = Payment methods for all countries =
@@ -67,6 +68,12 @@ Payssion is a global payment solution provider, that enables people to collect p
 1. Screenshot 1 - Payssion Settings Page
 
 == Changelog ==
+
+= 1.1.6 =
+* fix cpf/cnpj input issue and add more payment options: PIX, South Africa online banking
+
+= 1.1.5 =
+* add more payment options: Grabpay, Brasil Credit Card
 
 = 1.1.4 =
 * add more payment options: Paytm, Mercadopago Mexico
