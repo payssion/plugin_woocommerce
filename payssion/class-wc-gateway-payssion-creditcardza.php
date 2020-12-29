@@ -9,11 +9,11 @@ require_once( 'class-wc-gateway-payssion.php' );
 /**
  * Payssion 
  *
- * @class 		WC_Gateway_Payssion_Creditcardkr
+ * @class 		WC_Gateway_Payssion_Creditcardza
  * @extends		WC_Payment_Gateway
  * @author 		Payssion
  */
-class WC_Gateway_Payssion_Creditcardkr extends WC_Gateway_Payssion {
-	public $title = 'South Korea Credit Card';
-	protected $pm_id = 'creditcard_kr';
+class WC_Gateway_Payssion_Creditcardza extends WC_Gateway_Payssion {
+	public $title = 'South Africa Credit Card';
+	protected $pm_id = 'creditcard_za';
 }
