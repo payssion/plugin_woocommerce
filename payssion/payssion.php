@@ -32,10 +32,13 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-bitcoin.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
 	require_once('class-wc-gateway-payssion-boacompra.php');
+	require_once('class-wc-gateway-payssion-caixabr.php');
 	//require_once('class-wc-gateway-payssion-cashu.php');
 	require_once('class-wc-gateway-payssion-cimbmy.php');
+	require_once('class-wc-gateway-payssion-creditcardbr.php');
 	//require_once('class-wc-gateway-payssion-creditcardjp.php');
 	require_once('class-wc-gateway-payssion-creditcardkr.php');
+	require_once('class-wc-gateway-payssion-creditcardza.php');
 	//require_once('class-wc-gateway-payssion-docomojp.php');
 	require_once('class-wc-gateway-payssion-dokuid.php');
 	require_once('class-wc-gateway-payssion-dotpaypl.php');
@@ -117,10 +120,13 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_Bitcoin',
 				    'WC_Gateway_Payssion_Boleto',
 				    'WC_Gateway_Payssion_Boacompra',
+				    'WC_Gateway_Payssion_Caixabr',
 				    //'WC_Gateway_Payssion_CashU',
-				    'WC_Gateway_Payssion_cimbmy',
+				    'WC_Gateway_Payssion_Cimbmy',
+				    'WC_Gateway_Payssion_Creditcardbr',
 				    //'WC_Gateway_Payssion_CreditCardjp',
 				    'WC_Gateway_Payssion_Creditcardkr',
+				    'WC_Gateway_Payssion_Creditcardza',
 				    'WC_Gateway_Payssion_Dokuid',
 				    'WC_Gateway_Payssion_Dotpaypl',
 				    'WC_Gateway_Payssion_Dragonpay',
