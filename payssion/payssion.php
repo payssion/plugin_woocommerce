@@ -71,6 +71,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-oxxo.php');
 	require_once('class-wc-gateway-payssion-p24pl.php');
 	require_once('class-wc-gateway-payssion-pagofacilar.php');
+	require_once('class-wc-gateway-payssion-paybybankappgb.php');
 	require_once('class-wc-gateway-payssion-paysafecard.php');
 	require_once('class-wc-gateway-payssion-paytmin.php');
 	require_once('class-wc-gateway-payssion-payupl.php');
@@ -88,6 +89,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-sberbankru.php');
 	require_once('class-wc-gateway-payssion-sofort.php');
 	require_once('class-wc-gateway-payssion-tenpay.php');
+	require_once('class-wc-gateway-payssion-trustly.php');
 	require_once('class-wc-gateway-payssion-trustpay.php');
 	require_once('class-wc-gateway-payssion-unionpay.php');
 	require_once('class-wc-gateway-payssion-upiin.php');
@@ -158,6 +160,7 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_OXXO',
 				    'WC_Gateway_Payssion_P24pl',
 				    'WC_Gateway_Payssion_Pagofacilar',
+				    'WC_Gateway_Payssion_Paybankappgb',
 				    'WC_Gateway_Payssion_Paysafecard',
 				    'WC_Gateway_Payssion_Paytmin',
 				    'WC_Gateway_Payssion_Payupl',
@@ -175,6 +178,7 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_Sberbankru',
 				    'WC_Gateway_Payssion_SOFORT',
 				    'WC_Gateway_Payssion_Tenpay',
+				    'WC_Gateway_Payssion_Trustly',
 				    //'WC_Gateway_Payssion_Trustpay',
 				    'WC_Gateway_Payssion_Unionpay',
 				    'WC_Gateway_Payssion_Upiin',
