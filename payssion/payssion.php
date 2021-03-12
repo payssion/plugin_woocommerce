@@ -53,6 +53,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-fpxmy.php');
 	require_once('class-wc-gateway-payssion-gcashph.php');
 	require_once('class-wc-gateway-payssion-giropayde.php');
+	require_once('class-wc-gateway-payssion-grabpaymy.php');
 	require_once('class-wc-gateway-payssion-grabpayph.php');
 	require_once('class-wc-gateway-payssion-hlbmy.php');
 	require_once('class-wc-gateway-payssion-idealnl.php');
@@ -142,6 +143,7 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_Fpxmy',
 				    'WC_Gateway_Payssion_Gcashph',
 				    'WC_Gateway_Payssion_Giropayde',
+				    'WC_Gateway_Payssion_Grabpaymy',
 				    'WC_Gateway_Payssion_Grabpayph',
 				    'WC_Gateway_Payssion_Hlbmy',
 				    'WC_Gateway_Payssion_Idealnl',
