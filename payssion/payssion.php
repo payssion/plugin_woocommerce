@@ -31,6 +31,7 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-bitcashjp.php');
 	require_once('class-wc-gateway-payssion-bitcoin.php');
 	require_once('class-wc-gateway-payssion-boleto.php');
+	require_once('class-wc-gateway-payssion-boostmy.php');
 	require_once('class-wc-gateway-payssion-boacompra.php');
 	require_once('class-wc-gateway-payssion-caixabr.php');
 	//require_once('class-wc-gateway-payssion-cashu.php');
@@ -45,7 +46,6 @@ function init_payssion_gateway() {
 	require_once('class-wc-gateway-payssion-dragonpay.php');
 	require_once('class-wc-gateway-payssion-ebankingin.php');
 	require_once('class-wc-gateway-payssion-ebankingkr.php');
-	require_once('class-wc-gateway-payssion-ebankingmy.php');
 	require_once('class-wc-gateway-payssion-ebankingth.php');
 	require_once('class-wc-gateway-payssion-ebankingza.php');
 	require_once('class-wc-gateway-payssion-enets.php');
@@ -124,6 +124,7 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_BitCashjp',
 				    'WC_Gateway_Payssion_Bitcoin',
 				    'WC_Gateway_Payssion_Boleto',
+				    'WC_Gateway_Payssion_Boostmy',
 				    'WC_Gateway_Payssion_Boacompra',
 				    'WC_Gateway_Payssion_Caixabr',
 				    //'WC_Gateway_Payssion_CashU',
@@ -137,7 +138,6 @@ function init_payssion_gateway() {
 				    'WC_Gateway_Payssion_Dragonpay',
 				    'WC_Gateway_Payssion_Ebankingin',
 				    'WC_Gateway_Payssion_Ebankingkr',
-				    'WC_Gateway_Payssion_Ebankingmy',
 				    'WC_Gateway_Payssion_Ebankingth',
 				    'WC_Gateway_Payssion_Ebankingza',
 				    'WC_Gateway_Payssion_Enets',
