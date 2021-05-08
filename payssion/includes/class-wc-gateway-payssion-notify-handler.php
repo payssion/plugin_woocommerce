@@ -246,6 +246,12 @@ class WC_Gateway_Payssion_Notify_Handler extends WC_Gateway_Payssion_Response {
 	 * @param  WC_Order $order
 	 */
 	private function payment_status_failed( $order, $posted ) {
+	    if ( $order->has_status( 'completed' ) || $order->has_status( 'paid_partial' ) ) {
+	        die ('handled before');
+	        WC_Gateway_Payssion::log( 'Aborting, Order #' . $order->id . ' is already handled before.' );
+	        exit;
+	    }
+	    
 		$order->update_status( 'failed', sprintf( __( 'Payment %s via Payssion Notify.', 'woocommerce' ), wc_clean( $posted['state'] ) ) );
 	}
 
